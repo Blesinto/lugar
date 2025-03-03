@@ -1,0 +1,279 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lugar</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- font-awesome link  -->
+    <script
+      src="https://kit.fontawesome.com/7ae2f53444.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">LUGAR</div>
+        <ul class="nav-links">
+          <li><a href="#" class="active">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#project">PROJECT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="hero-content">
+        <h1>A home is<br />built with love<br />and dreams</h1>
+        <p>Real estate farm that makes your dreams true</p>
+        <div class="cta-buttons">
+          <button class="btn primary">Our projects</button>
+          <button class="btn secondary">Contact us</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="./asset/building.png"
+          alt="Modern white building architecture" />
+      </div>
+    </main>
+
+    <section class="about">
+      <div class="about-container">
+        <div class="about-image">
+          <img
+            src="./asset/building-angle.png"
+            alt="Modern apartment building angle view" />
+        </div>
+        <div class="about-content">
+          <h2>Award winning real estate company in Dubai</h2>
+          <p>
+            Semper arcu mauris aliquam lacus. Massa erat vitae ultrices pharetra
+            scelerisque. Ipsum, turpis facilisis tempor pulvinar in lobortis
+            ornare magna.
+          </p>
+
+          <div class="stats">
+            <div class="stat-item">
+              <span class="stat-number">34+</span>
+              <span class="stat-label">PREVIOUS PROJECTS</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">20y</span>
+              <span class="stat-label">YEARS EXPERIENCE</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">12</span>
+              <span class="stat-label">ONGOING PROJECTS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="projects-header">
+        <div>
+          <h2>Ongoing projects</h2>
+          <p>Turpis facilisis tempor pulvinar in lobortis ornare magna.</p>
+        </div>
+        <div class="carousel-buttons">
+          <button class="prev-btn" onclick="slideProjects(-1)">←</button>
+          <button class="next-btn" onclick="slideProjects(1)">→</button>
+        </div>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="project-card">
+            <img src="./asset/vintage-villa.png" alt="Vintage Villa" />
+            <h3>Vintage Villa</h3>
+            <p>2715 Ash Dr. San Jose, Dubai</p>
+          </div>
+          <div class="project-card">
+            <img src="./asset/tonga-villa.png" alt="Tonga Villa" />
+            <h3>Tonga Villa</h3>
+            <p>1901 Thornridge Cir. Shiloh 81063</p>
+          </div>
+          <div class="project-card">
+            <img src="./asset/penthouse.png" alt="Penthouse" />
+            <h3>Penthouse</h3>
+            <p>2464 Royal Ln. Mesa, 45463</p>
+          </div>
+          <div class="project-card">
+            <img src="./asset/smart-city.png" alt="Smart City Project" />
+            <h3>Smart City Project</h3>
+            <p>2715 Ash Dr. San Jose, 83475</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2 class="section-title">Few smiles and comment</h2>
+      <p class="section-subtitle">
+        Turpis facilisis tempor pulvinar in lobortis ornare magna.
+      </p>
+
+      <div class="testimonial-carousel">
+        <button class="carousel-btn prev">←</button>
+        <div class="testimonial-container">
+          <div class="testimonial-track">
+            <div class="testimonial-slide">
+              <div class="testimonial-image">
+                <img src="./asset/testimonial-1.png" alt="Testimonial 1" />
+              </div>
+              <div class="testimonial-content">
+                <div class="quote-mark">"</div>
+                <h3>Dream house isn't dream anymore</h3>
+                <p>
+                  Semper arcu mauris aliquam lacus. Massa erat vitae ultrices
+                  pharetra scelerisque. Ipsum, turpis facilisis tempor pulvinar.
+                </p>
+                <div class="author">
+                  <span class="author-name">Brooklyn Simmons</span>
+                  <span class="author-title">Artist</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide">
+              <div class="testimonial-image">
+                <img src="./asset/testimonial-1.png" alt="Testimonial 2" />
+              </div>
+              <div class="testimonial-content">
+                <div class="quote-mark">"</div>
+                <h3>Perfect home for my family</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <div class="author">
+                  <span class="author-name">Robert Johnson</span>
+                  <span class="author-title">Business Owner</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide">
+              <div class="testimonial-image">
+                <img src="./asset/testimonial-1.png" alt="Testimonial 3" />
+              </div>
+              <div class="testimonial-content">
+                <div class="quote-mark">"</div>
+                <h3>Exceptional service quality</h3>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <div class="author">
+                  <span class="author-name">Sarah Parker</span>
+                  <span class="author-title">Architect</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact-container">
+        <div class="contact-image">
+          <img src="./asset/house-image.png" alt="Modern house exterior" />
+        </div>
+
+        <div class="contact-form">
+          <h2>Contact us</h2>
+          <p>Turpis facilisis tempor pulvinar in lobortis ornare magna.</p>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <input type="text" placeholder="First name" required />
+              <input type="text" placeholder="Last name" required />
+            </div>
+
+            <div class="form-row">
+              <input type="email" placeholder="Email address" required />
+              <input type="tel" placeholder="Phone number" required />
+            </div>
+
+            <textarea placeholder="Description" rows="4" required></textarea>
+
+            <div class="form-footer">
+              <button type="submit" class="submit-btn">Get a quote</button>
+              <span class="privacy-note"
+                >We will process your personal information in accordance with
+                our Privacy Policy.</span
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section  -->
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Company Info -->
+        <div class="footer-section">
+          <h3 class="footer-title">LUGAR</h3>
+          <div class="company-info">
+            <p><i class="fas fa-map-marker-alt"></i> 204 Akpan Edet Avenu.</p>
+            <p>Nwaniba, Uyo Akwa Ibom State</p>
+            <p><i class="fas fa-phone"></i> +234-16653669</p>
+            <p><i class="fas fa-envelope"></i> contact@lugar.com</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-title">QUICK LINKS</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Project</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="footer-section">
+          <h3 class="footer-title">LEGAL LINKS</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Conditions</a></li>
+            <li><a href="#">Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section">
+          <h3 class="footer-title">SOCIAL MEDIA</h3>
+          <ul class="footer-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>Copyright © 2025 Lugar Inc.</p>
+      </div>
+    </footer>
+
+    <!-- js file link -->
+    <script src="script.js"></script>
+  </body>
+</html>
