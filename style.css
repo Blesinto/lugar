@@ -1,4 +1,8 @@
-/** @format */
+/**
+ * Reset and Base Styles
+ *
+ * @format
+ */
 
 * {
   margin: 0;
@@ -9,11 +13,12 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #b8d8e8;
+  line-height: 1.6;
 }
 
 /* Navigation Styles */
 header {
-  padding: 2rem 8%;
+  padding: 1rem 8%;
   position: fixed;
   top: 0;
   left: 0;
@@ -896,6 +901,7 @@ button:focus {
   box-shadow: 0 0 0 2px rgba(44, 56, 71, 0.2);
 }
 
+/* Footer Styles */
 .footer {
   background-color: #1b2534;
   color: #fff;
@@ -911,29 +917,21 @@ button:focus {
   gap: 40px;
 }
 
-.footer-section {
-  display: flex;
-  flex-direction: column;
-}
-
 .footer-title {
   color: #fff;
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 25px;
-  letter-spacing: 0.5px;
 }
 
 .company-info p {
   color: #b4b7be;
   margin-bottom: 10px;
   font-size: 0.9rem;
-  line-height: 1.6;
 }
 
 .footer-links {
   list-style: none;
-  padding: 0;
 }
 
 .footer-links li {
@@ -956,7 +954,6 @@ button:focus {
   margin: 40px auto 0;
   padding: 20px 20px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: left;
 }
 
 .footer-bottom p {

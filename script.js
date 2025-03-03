@@ -58,7 +58,9 @@ const slides = document.querySelectorAll(".testimonial-slide");
 const slideWidth = 100 / slides.length; // Calculate width percentage per slide
 
 function updateSlide(direction) {
-  const maxPosition = -(slides.length - 1) * slideWidth;
+  const visibleSlides = getVisibleSlides();
+  const slideWidth = 100 / visibleSlides;
+  const maxPosition = -(slides.length - visibleSlides) * slideWidth;
 
   currentPositionTestimonial += direction * slideWidth;
 
@@ -66,7 +68,6 @@ function updateSlide(direction) {
   if (currentPositionTestimonial > 0) currentPositionTestimonial = maxPosition;
   if (currentPositionTestimonial < maxPosition) currentPositionTestimonial = 0;
 
-  // Apply transform
   testimonialTrack.style.transform = `translateX(${currentPositionTestimonial}%)`;
 }
 
@@ -79,13 +80,9 @@ document.querySelector(".prev").addEventListener("click", () => updateSlide(1));
 updateSlide(0);
 
 function getVisibleSlides() {
-  // Determine number of visible slides based on screen width
-  if (window.innerWidth <= 768) {
-    return 1; // Show 1 slide on mobile
-  } else if (window.innerWidth <= 992) {
-    return 2; // Show 2 slides on tablets
-  }
-  return 3; // Show 3 slides on desktop
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 992) return 2;
+  return 3;
 }
 
 function updateSlideWidth() {
@@ -106,55 +103,57 @@ function updateSlideWidth() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
-  const body = document.body;
+  // Testimonial carousel functionality
+  const testimonialTrack = document.querySelector(".testimonial-track");
+  const slides = document.querySelectorAll(".testimonial-slide");
+  let currentPosition = 0;
 
-  // Create overlay element
-  const overlay = document.createElement("div");
-  overlay.classList.add("overlay");
-  body.appendChild(overlay);
-
-  // Toggle menu function
-  function toggleMenu(event) {
-    if (event) event.preventDefault();
-
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-    overlay.classList.toggle("active");
-
-    // Toggle body scroll
-    body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "";
+  function getVisibleSlides() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
   }
 
-  // Event listeners
-  hamburger.addEventListener("click", toggleMenu);
-  overlay.addEventListener("click", toggleMenu);
+  function updateSlide(direction) {
+    const visibleSlides = getVisibleSlides();
+    const slideWidth = 100 / visibleSlides;
+    const maxPosition = -(slides.length - visibleSlides) * slideWidth;
 
-  // Close menu when clicking nav links
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (navLinks.classList.contains("active")) {
-        toggleMenu();
-      }
-    });
-  });
+    currentPosition += direction * slideWidth;
 
-  // Handle escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && navLinks.classList.contains("active")) {
-      toggleMenu();
-    }
-  });
+    // Handle boundaries
+    if (currentPosition > 0) currentPosition = maxPosition;
+    if (currentPosition < maxPosition) currentPosition = 0;
 
-  // Close menu on window resize if open
+    testimonialTrack.style.transform = `translateX(${currentPosition}%)`;
+  }
+
+  // Event listeners for carousel navigation
+  document
+    .querySelector(".next")
+    ?.addEventListener("click", () => updateSlide(-1));
+  document
+    .querySelector(".prev")
+    ?.addEventListener("click", () => updateSlide(1));
+
+  // Update slide width on window resize
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      if (window.innerWidth > 768 && navLinks.classList.contains("active")) {
-        toggleMenu();
-      }
+      const visibleSlides = getVisibleSlides();
+      const slideWidth = 100 / visibleSlides;
+
+      testimonialTrack.style.width = `${
+        (slides.length * 100) / visibleSlides
+      }%`;
+      slides.forEach((slide) => {
+        slide.style.width = `${slideWidth}%`;
+      });
+
+      // Reset position
+      currentPosition = 0;
+      testimonialTrack.style.transform = "translateX(0)";
     }, 250);
   });
 });
