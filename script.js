@@ -103,57 +103,34 @@ function updateSlideWidth() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Testimonial carousel functionality
-  const testimonialTrack = document.querySelector(".testimonial-track");
+  const track = document.querySelector(".testimonial-track");
   const slides = document.querySelectorAll(".testimonial-slide");
-  let currentPosition = 0;
-
-  function getVisibleSlides() {
-    if (window.innerWidth <= 768) return 1;
-    if (window.innerWidth <= 992) return 2;
-    return 3;
-  }
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  let currentIndex = 0;
 
   function updateSlide(direction) {
-    const visibleSlides = getVisibleSlides();
-    const slideWidth = 100 / visibleSlides;
-    const maxPosition = -(slides.length - visibleSlides) * slideWidth;
+    if (direction === "next") {
+      if (currentIndex === slides.length - 1) {
+        // If at last slide, smoothly transition back to first
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+    } else {
+      if (currentIndex === 0) {
+        // If at first slide, go to last
+        currentIndex = slides.length - 1;
+      } else {
+        currentIndex--;
+      }
+    }
 
-    currentPosition += direction * slideWidth;
-
-    // Handle boundaries
-    if (currentPosition > 0) currentPosition = maxPosition;
-    if (currentPosition < maxPosition) currentPosition = 0;
-
-    testimonialTrack.style.transform = `translateX(${currentPosition}%)`;
+    // Update transform with smooth transition
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
-  // Event listeners for carousel navigation
-  document
-    .querySelector(".next")
-    ?.addEventListener("click", () => updateSlide(-1));
-  document
-    .querySelector(".prev")
-    ?.addEventListener("click", () => updateSlide(1));
-
-  // Update slide width on window resize
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      const visibleSlides = getVisibleSlides();
-      const slideWidth = 100 / visibleSlides;
-
-      testimonialTrack.style.width = `${
-        (slides.length * 100) / visibleSlides
-      }%`;
-      slides.forEach((slide) => {
-        slide.style.width = `${slideWidth}%`;
-      });
-
-      // Reset position
-      currentPosition = 0;
-      testimonialTrack.style.transform = "translateX(0)";
-    }, 250);
-  });
+  // Event Listeners for buttons
+  nextBtn.addEventListener("click", () => updateSlide("next"));
+  prevBtn.addEventListener("click", () => updateSlide("prev"));
 });
